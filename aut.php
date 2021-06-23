@@ -1,5 +1,9 @@
 <?php
 include('includes/header.php');
+session_start();
+if (isset($_COOKIE['user'])==true){
+ header('Location: error');
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,14 +17,13 @@ include('includes/header.php');
     <label>
         Логин
     </label>
-    <input type="text"  name="login" placeholder="Введите логин">
+        <input type="text"  name="login" placeholder="Введите логин"><br>
     <label>
         Пароль
     </label>
-    <input type="password" name="pass"  placeholder="Введите пароль"> <br>
-    <button class="btn btn-success" type="submit">Зарегистрироваться</button>
+        <input type="password" name="pass"  placeholder="Введите пароль"> <br>
+    <button class="btn btn-success" type="submit">Войти</button>
 </form>
 </div>
-
 </body>
 </html>

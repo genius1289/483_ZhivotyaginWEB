@@ -11,15 +11,15 @@ include('includes/header.php');
             <label>
                 Логин
             </label>
-            <input type="text"  name="login" placeholder="Введите логин">
+            <input type="text"  name="login" placeholder="Введите логин" required><br>
             <label>
                 Имя
             </label>
-            <input type="text"  name="name"  placeholder="Введите имя">
+            <input type="text"  name="name"  placeholder="Введите имя" required><br>
             <label>
                 Пароль
             </label>
-            <input type="password" name="pass"  placeholder="Введите пароль"> <br>
+            <input type="password" name="pass"  placeholder="Введите пароль" required> <br>
             <button class="btn btn-success" type="submit">Зарегистрироваться</button>
         </form>
 </body>

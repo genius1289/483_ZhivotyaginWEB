@@ -8,13 +8,14 @@
 			<div class="row">
 				<div class="col">
 					<nav class="nav">
-						<a class="nav-link" aria-current="page" href="index.php"> Главная </a>
+						<a class="nav-link" aria-current="page" href="http://localhost/sites/index.php"> Главная </a>
                         <?php if (isset($_COOKIE['user'])==false): ?>
-						<a class="nav-link" href="reg.php">Регистрация </a>
-						<a class="nav-link" href="aut.php">Вход </a>
+						<a class="nav-link" href="http://localhost/sites/reg.php">Регистрация </a>
+						<a class="nav-link" href="http://localhost/sites/aut.php">Вход </a>
                         <?php else : ?>
-						<a class="nav-link" href="lk.php">Личный кабинет</a>
+						<a class="nav-link" align="right" href="http://localhost/sites/lk.php">Личный кабинет,<?=$_COOKIE['user']?></a>
                         <?php endif;?>
+                        <a class="nav-link" href="http://localhost/sites/news_state.php">Публикации</a>
 					</nav>
 				</div>
 			</div>

@@ -47,8 +47,8 @@ $date=mb_strimwidth($result1['data'], '0','10')
 <h1>Комментарии: </h1>
 <?php
 
-//$comm=$mysql->query(("SELECT * FROM `comm` WHERE `page_id`= '$id' "));
-while($result1=$result->fetch_assoc()){?>
+$comm=$mysql->query(("SELECT * FROM `comm` WHERE `page_id`= '$id' "));
+while($result1=$comm->fetch_assoc()){?>
     <h1>Имя: <?=$result1['login']?></h1>
     <h2>Комментарий:</h2>
     <h1><?=$result1['text_comm']?></h1>

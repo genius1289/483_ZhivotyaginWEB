@@ -2,7 +2,7 @@
 session_start();
 include_once('../includes/header.php');
 $id = isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : null;
-include_once('../includes/connews.php');
+include('../includes/connews.php');
 
 $login=isset($_SESSION['user']['login']) ? $_COOKIE['user'] : !null;
 $result=$mysql->query("SELECT * FROM `news` WHERE `id`='$id'");
@@ -16,11 +16,12 @@ $date=mb_strimwidth($result1['data'], '0','10')
 <body>
 
     <div class="row">
-        <div class="col-1"
-        <div class="col-3"
-        <h1><?=$result1['heading'] ?></h1>
+        <div >
+
+        <h1> <?=$result1['heading'] ?> </h1>
         <p style="text-indent: 25px"> <?=$result1['text_news']?> </p>
         <p>Автор: <?=$result1['author']?> Дата написания: <?=$date?></p>
+        </div>
         </div>
     </div>
     <?php if(isset($_SESSION['user']['login'])==$result1['author']){?>
@@ -52,6 +53,7 @@ while($result1=$comm->fetch_assoc()){?>
     <h1>Имя: <?=$result1['login']?></h1>
     <h2>Комментарий:</h2>
     <h1><?=$result1['text_comm']?></h1>
+    <br>
 <?php }?>
 
 </html>

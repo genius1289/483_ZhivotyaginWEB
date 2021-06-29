@@ -18,12 +18,19 @@ if(mb_strlen($login)<5 || mb_strlen($login) > 90){
     $mysql = mysqli_connect('localhost', 'root', '','sites');
     if (!$mysql){
         die('Error connect to DataBase');
-    }else {
-
-
-        mysqli_query($mysql, "INSERT INTO `users` (`login`, `pass`, `name`) VALUES ('$login', '$pass', '$name')");
-
-        $mysql->close();
-        header('Location: ../aut.php');
     }
+        $result=$mysql->query("SELECT * FROM `users` WHERE `login` ='$login'");
+        $user = $result->fetch_array();
+        if (!empty($user)){
+            echo "Такой пользователь уже существует"."<a href='../reg.php'> Попробуй снова</a>";
+            //exit();
+            $_SESSION['message'] = 'Такой пользователь уже существует';
+            header('Location: ../reg.php');
+        }else{
+
+            mysqli_query($mysql, "INSERT INTO `users` (`login`, `pass`, `name`) VALUES ('$login', '$pass', '$name')");
+            header('Location: ../aut.php');
+        }
+
+
 ?>
